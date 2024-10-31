@@ -150,12 +150,12 @@ body, .no-select {
     .artist-info {
         display: flex;
         flex-direction: row;
-        gap: 10px; /* Khoảng cách giữa các nút */
-        justify-content: center; /* Căn giữa các nút */
-        flex-wrap: wrap; /* Cho phép các nút tự xuống hàng nếu không đủ chỗ */
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .bg-cover {
-        height: 200px; /* Giảm chiều cao trên điện thoại */
+        height: 200px;
     }
     .nghe-si img {
         width: 120px;
@@ -204,9 +204,10 @@ body, .no-select {
 
 .bg-cover img {
     width: 100%;
-    height: auto;
+    height: 100%;
     opacity: 0.5;
-    border-radius: 0;
+    border-radius: 10px;
+    object-fit: cover; 
 }
 
 .artist-info {
