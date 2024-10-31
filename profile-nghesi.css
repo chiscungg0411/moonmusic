@@ -161,7 +161,9 @@ body, .no-select {
         width: 120px;
         height: 120px;
     }
-    
+    .song i{
+        padding-left: -15px;
+    }
 
     .play-button, .follow-button, .more-button {
         flex: 1 1 30%;
