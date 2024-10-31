@@ -175,6 +175,29 @@ body, .no-select {
         flex: 1 1 30%;
         margin-right: 0;
     }
+
+    .popular-album {
+        flex-direction: column; /* Đặt các phần tử thành cột */
+        align-items: center; /* Căn giữa các phần tử */
+    }
+
+    .album {
+        width: 90%; /* Giảm chiều rộng của album cho phù hợp với màn hình nhỏ */
+        margin: 10px 0; /* Tạo khoảng cách giữa các album */
+    }
+
+    .album-container {
+        padding: 10px; /* Giảm padding cho album-container */
+    }
+
+    .popular-album h2 {
+        font-size: 20px; /* Giảm kích thước tiêu đề */
+        align-items: left;
+    }
+
+    .album p b {
+        font-size: 16px; /* Giảm kích thước chữ cho tên album */
+    }
 }
 
 /*--------------------------------------------------------------------------------------------------*/
@@ -396,6 +419,7 @@ body, .no-select {
     display: none;
 }
 
+/*-------------------------------------------------------------------------------*/
 
 /* Thanh nhạc ở cuối trang */
 .thanh-nhac {
