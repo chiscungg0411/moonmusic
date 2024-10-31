@@ -214,6 +214,7 @@ body, .no-select {
     color: #b3b3b3;
     font-size: 15px;
     text-align: left;
+    padding-left:-15px
 }
 
 .artist-info {
