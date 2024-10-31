@@ -164,7 +164,7 @@ body, .no-select {
     
 
     .play-button, .follow-button, .more-button {
-        flex: 1 1 30%; /* Đặt các nút có kích thước bằng nhau */
+        flex: 1 1 30%;
         margin-right: 0;
     }
 }
@@ -208,6 +208,13 @@ body, .no-select {
     opacity: 0.5;
     border-radius: 10px;
     object-fit: cover; 
+}
+
+.song i {
+    color: #b3b3b3;
+    padding-left: 10px;
+    font-size: 15px;
+    text-align: left;
 }
 
 .artist-info {
