@@ -1,0 +1,330 @@
+html {
+    font-family: 'Inter', sans-serif;
+    background-color: black;
+    font-weight: bold;
+}
+
+body, .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.thanhdieuhuong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #181818;
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+.timkiem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.timkiem form {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timkiem input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+}
+
+.timkiem input[type="text"]::placeholder {
+    color: #aaaaaa;
+}
+
+.timkiem button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.timkiem button i {
+    filter: invert(100%);
+    font-size: 20px;
+}
+
+.timkiem form:hover {
+    background-color: #444;
+}
+
+.taikhoan {
+    display: flex;
+    gap: 10px;
+}
+
+.taikhoan .nutdangky, .taikhoan .nutdangnhap {
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.taikhoan .nutdangky {
+    background-color: #181818;
+    color: #fff;
+    border-color: #fff;
+}
+
+.taikhoan .nutdangnhap {
+    background-color: #fff;
+    color: #000;
+}
+
+.taikhoan .nutdangky:hover {
+    background-color: #4b4b4b;
+}
+
+.taikhoan .nutdangnhap:hover {
+    background-color: #cbcbcb;
+}
+
+@media (max-width: 768px) {
+    .thanhdieuhuong {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .timkiem {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .timkiem form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .timkiem input[type="text"] {
+        width: 100%;
+    }
+
+    .taikhoan {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .taikhoan .nutdangky, .taikhoan .nutdangnhap {
+        width: auto;
+        padding: 6px 14px;
+        font-size: 15px; 
+        max-width: 120px;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+.nghe-si-header {
+    position: relative;
+    color: white;
+    padding: 40px 20px;
+    background: url('https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/c2238fd4-ec68-4c0a-bf86-c57756fcc593.image.png?v=1730241194132');
+    overflow: hidden;
+    background: no-repeat;
+    background-color: #000;
+}
+
+.nghe-si img {
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.bg-cover {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-cover img {
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+    border-radius: 0;
+    background: no-repeat;
+}
+
+.artist-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.artist-info h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 2px 2px #000;
+}
+
+.artist-info p {
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.play-button, .follow-button, .more-button {
+    background-color: #ffffff00;
+    border: 2px solid #808080;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.play-button:hover, .follow-button:hover, .more-button:hover {
+    border: 2px solid #fff;
+    background-color: #ffffff00;
+}
+
+
+/* Phần chứa các bài hát phổ biến */
+.popular-songs {
+    padding: 20px;
+    color: white;
+    background-color: #121212;
+}
+
+.popular-songs h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+/* Thiết kế cho từng bài hát */
+.song {
+    display: grid;
+    grid-template-columns: 40px 60px 1fr 60px 30px;
+    align-items: center;
+    color: #b3b3b3;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.song:hover {
+    background-color: #282828;
+}
+
+.song p {
+    margin: 0;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    color: #fff;
+    margin-left:10px;
+}
+
+.song img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Thanh nhạc ở cuối trang */
+.thanh-nhac {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #181818;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    color: white;
+}
+
+.thanh-nhac img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.thanh-nhac .song-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.thanh-nhac .song-info h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.thanh-nhac .song-info p {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.thanh-nhac #audioPlayer {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 20px;
+}
+
+

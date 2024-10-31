@@ -1,0 +1,301 @@
+html {
+    font-family: 'Inter', sans-serif;
+    background-color: black;
+    font-weight: bold;
+}
+
+body, .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.thanhdieuhuong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #181818;
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+.timkiem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.timkiem form {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timkiem input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+}
+
+.timkiem input[type="text"]::placeholder {
+    color: #aaaaaa;
+}
+
+.timkiem button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.timkiem button i {
+    filter: invert(100%);
+    font-size: 20px;
+}
+
+.timkiem form:hover {
+    background-color: #444;
+}
+
+.taikhoan {
+    display: flex;
+    gap: 10px;
+}
+
+.taikhoan .nutdangky, .taikhoan .nutdangnhap {
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.taikhoan .nutdangky {
+    background-color: #181818;
+    color: #fff;
+    border-color: #fff;
+}
+
+.taikhoan .nutdangnhap {
+    background-color: #fff;
+    color: #000;
+}
+
+.taikhoan .nutdangky:hover {
+    background-color: #4b4b4b;
+}
+
+.taikhoan .nutdangnhap:hover {
+    background-color: #cbcbcb;
+}
+
+@media (max-width: 768px) {
+    .thanhdieuhuong {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .timkiem {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .timkiem form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .timkiem input[type="text"] {
+        width: 100%;
+    }
+
+    .taikhoan {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .taikhoan .nutdangky, .taikhoan .nutdangnhap {
+        width: auto;
+        padding: 6px 14px;
+        font-size: 15px; 
+        max-width: 120px;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
+/*--------------------------------------------------------------------------------------------------*/
+
+.noi-dung-chinh {
+    padding: 20px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.noi-dung-chinh h2 {
+    font-family: 'Inter';
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 20px;
+}
+
+.noi-dung-chinh p b {
+    color: #fff;
+    font-size: 17px;
+    font-family: 'Inter';
+
+}
+
+.noi-dung-chinh p {
+    margin-top: -15px;
+    color:#818181;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.noi-dung-chinh a{
+    text-decoration: none;
+}
+.noi-dung-chinh a p b:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+.noi-dung-chinh a p:hover{
+    text-decoration: underline;
+    color: #818181;
+}
+.nghe-si-yeu-thich{
+    background-color: #000; 
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.nghe-si-yeu-thich, .album-noi-bat, .playlist {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nghe-si-yeu-thich::-webkit-scrollbar, .album-noi-bat::-webkit-scrollbar, .radio::-webkit-scrollbar {
+    height: 10px;
+}
+
+.nghe-si-yeu-thich::-webkit-scrollbar-thumb, .album-noi-bat::-webkit-scrollbar-thumb, .radio::-webkit-scrollbar-thumb {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}
+
+.nghe-si-yeu-thich::-webkit-scrollbar-thumb:hover, .album-noi-bat::-webkit-scrollbar-thumb:hover, .radio::-webkit-scrollbar-thumb:hover {
+    background-color: #a4a4a4;
+}
+
+.nghe-si {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    background: #ffffff00;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nghe-si img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.nghe-si:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.album {
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.album img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.album:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.radio-item p{
+    font-family: 'Inter';
+    margin-top: 10px;
+    color:#fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.radio-item {
+    flex: 0 0 auto;
+    width: 170px;
+    text-align: center;
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-right: 30px;
+}
+
+.radio-item img {
+    width: 150px;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.radio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
