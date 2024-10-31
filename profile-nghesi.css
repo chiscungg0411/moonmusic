@@ -235,9 +235,9 @@ body, .no-select {
 }
 
 .artist-info p {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
-    padding-left: 10px;
+
 
 }
 
@@ -305,6 +305,32 @@ body, .no-select {
     border-radius: 5px;
     object-fit: cover;
 }
+
+.xem-them {
+    font-family: "Inter";
+    font-weight: bold;
+    background-color: #00000000;
+    border: 2px solid #808080;
+    margin-top: 10px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.xem-them:hover {
+    font-family: "Inter";
+    font-weight: bold;
+    background-color: #00000000;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
 
 /* Thanh nhạc ở cuối trang */
 .thanh-nhac {
