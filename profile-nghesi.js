@@ -37,15 +37,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const nutTatTieng = document.getElementById("nut-tat-tieng");
     const iconVolume = document.getElementById("icon-volume");
     const thanhAmLuong = document.getElementById("thanh-am-luong");
+    const thanhThoiGian = document.getElementById("thanh-thoi-gian"); // Thêm thanh thời gian
     const audioPlayer = new Audio();
+
     let dangPhat = false;
     let dangTatTieng = false; // Trạng thái tắt tiếng
     let volumeCu = 1; // Lưu âm lượng ban đầu
 
     // Ẩn thông tin bài hát ban đầu
-    document.querySelector(".ten-bai-hat").textContent = ""; // Xóa tên bài hát
-    document.querySelector(".ten-nghe-si").textContent = ""; // Xóa tên nghệ sĩ
-    document.getElementById("tong-thoi-gian").textContent = "0:00"; // Đặt tổng thời gian bài hát là 0:00
+    resetTrackInfo();
 
     // Khi nhấn nút "Phát"
     nutPhat.forEach(button => {
@@ -62,18 +62,50 @@ document.addEventListener("DOMContentLoaded", function() {
     // Chức năng phát/tạm dừng nhạc
     nutPhatTamDung.addEventListener("click", function() {
         if (dangPhat) {
-            nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            audioPlayer.pause(); // Dừng phát nhạc
-            dangPhat = false;
+            togglePlayPause(false);
         } else {
-            nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
-            audioPlayer.play(); // Phát nhạc
-            dangPhat = true;
+            togglePlayPause(true);
         }
     });
 
     // Chức năng tắt tiếng
-    nutTatTieng.addEventListener("click", function() {
+    nutTatTieng.addEventListener("click", toggleMute);
+
+    // Cập nhật thanh thời gian khi bài hát phát
+    audioPlayer.addEventListener("timeupdate", function() {
+        const thoiGianHienTai = document.getElementById("thoi-gian-hien-tai");
+        thoiGianHienTai.textContent = formatTime(audioPlayer.currentTime);
+        thanhAmLuong.value = audioPlayer.volume * 100; // Cập nhật thanh âm lượng
+
+        // Cập nhật thanh thời gian
+        thanhThoiGian.value = (audioPlayer.currentTime / audioPlayer.duration) * 100; // Tính tỷ lệ phần trăm thời gian
+    });
+
+    // Xử lý khi người dùng kéo thanh thời gian
+    thanhThoiGian.addEventListener("input", function() {
+        const thoiGianChon = (thanhThoiGian.value / 100) * audioPlayer.duration; // Tính thời gian chọn
+        audioPlayer.currentTime = thoiGianChon; // Đặt thời gian bài hát
+    });
+
+    // Hàm reset thông tin bài hát
+    function resetTrackInfo() {
+        document.querySelector(".ten-bai-hat").textContent = ""; // Xóa tên bài hát
+        document.querySelector(".ten-nghe-si").textContent = ""; // Xóa tên nghệ sĩ
+        document.getElementById("tong-thoi-gian").textContent = "0:00"; // Đặt tổng thời gian bài hát là 0:00
+    }
+
+    function togglePlayPause(isPlaying) {
+        if (isPlaying) {
+            nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
+            audioPlayer.play(); // Phát nhạc
+        } else {
+            nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
+            audioPlayer.pause(); // Dừng phát nhạc
+        }
+        dangPhat = isPlaying;
+    }
+
+    function toggleMute() {
         if (dangTatTieng) {
             // Bật tiếng
             audioPlayer.volume = volumeCu; // Khôi phục âm lượng
@@ -85,24 +117,16 @@ document.addEventListener("DOMContentLoaded", function() {
             iconVolume.classList.replace("fa-volume-high", "fa-volume-xmark"); // Đổi biểu tượng
         }
         dangTatTieng = !dangTatTieng; // Đảo trạng thái tắt tiếng
-    });
+    }
 
     function phatBaiHat(tenBaiHat, tenNgheSi, duongDan) {
         document.querySelector(".ten-bai-hat").textContent = tenBaiHat; // Hiển thị tên bài hát
         document.querySelector(".ten-nghe-si").textContent = tenNgheSi; // Hiển thị tên nghệ sĩ
         document.querySelector(".bia-album").src = "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/95bf2fee-ba53-4498-8636-0762dd66b978.image.png?v=1730173870408"; // Cập nhật ảnh bìa album
-        document.getElementById("tong-thoi-gian").textContent = "3:42"; // Hiển thị tổng thời gian bài hát
         audioPlayer.src = duongDan; // Đặt link nhạc
         audioPlayer.play(); // Phát nhạc ngay khi chọn
         dangPhat = true;
         nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause"); // Đổi biểu tượng sang 'pause'
-
-        // Cập nhật thời gian bài hát
-        audioPlayer.addEventListener("timeupdate", function() {
-            const thoiGianHienTai = document.getElementById("thoi-gian-hien-tai");
-            thoiGianHienTai.textContent = formatTime(audioPlayer.currentTime);
-            thanhAmLuong.value = audioPlayer.volume * 100; // Cập nhật thanh âm lượng
-        });
 
         // Cập nhật tổng thời gian
         audioPlayer.addEventListener("loadedmetadata", function() {
@@ -124,4 +148,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 
