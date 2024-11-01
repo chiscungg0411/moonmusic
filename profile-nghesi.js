@@ -178,4 +178,3 @@ document.addEventListener('DOMContentLoaded', function () {
         audioPlayer.volume = thanhAmLuong.value / 100; // Đặt âm lượng
     });
 });
-
