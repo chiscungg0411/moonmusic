@@ -128,25 +128,39 @@
 
         <button class="an-bot" style="display: none;">Ẩn bớt</button> 
         <!--NÚT ẨN BỚT NẰM Ở ĐÂY-->
-    </div>
-
-    <div id="thanh-nhac" class="thanh-nhac">
+    </div> 
+    <div class="trinh-phat"> 
         <div class="thong-tin-bai-hat">
-            <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/74a1f39a-1ad6-44b4-a5a8-fed169aadcdd.image.png?v=1730229798801" alt="Bìa Album" class="bia-album">
+            <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/3645bd2d-2409-47d8-8e45-5d6f345dd7c2.image.png?v=1730479393114" alt="Bìa Album" class="bia-album">
             <div class="chi-tiet-bai-hat">
-                <p class="ten-bai-hat">Tên bài hát</p>
-                <p class="ten-nghe-si">Tên nghệ sĩ</p>
+                <p class="ten-bai-hat">Sắp Nổi Tiếng</p>
+                <p class="ten-nghe-si">HIEUTHUHAI</p>
+            </div>
+            <!-- <button class="them-vao-ds-phat"><i class="fa-solid fa-plus"></i></button> -->
+        </div>
+    
+        <div class="thanh-nhac">
+            <div class="dieu-khien">
+                <button onclick="baiTruoc()"><i class="fa-solid fa-shuffle"></i></button>
+                <button onclick="baiTruoc()"><i class="fas fa-step-backward"></i></button>
+                <button onclick="phatTamDung()" id="phat-tam-dung"><i class="fa-solid fa-play"></i></button>
+                <button onclick="baiTiepTheo()"><i class="fa-solid fa-forward-step"></i></button>
+                <button onclick="lapLai()"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+            <div class="thoi-gian">
+                <span id="thoi-gian-hien-tai">0:00</span>
+                <input type="range" id="thanh-thoi-gian" min="0" max="100" value="3" title="Thời gian bài hát">
+                <span id="tong-thoi-gian">3:42</span>
             </div>
         </div>
-        <div class="dieu-khien">
-            <button onclick="baiTruoc()"><i class="fas fa-step-backward"></i></button>
-            <button onclick="phatTamDung()" id="phat-tam-dung"><i class="fas fa-play"></i></button>
-            <button onclick="baiTiepTheo()"><i class="fas fa-step-forward"></i></button>
+    
+        <div class="am-luong">
+            <button id="nut-tat-tieng" class="nut-tat-tieng">
+                <i class="fa-solid fa-volume-high" id="icon-volume"></i>
+            </button>
+            <input type="range" id="thanh-am-luong" min="0" max="100" value="50">
         </div>
-        <input type="range" id="thanh-am-luong" min="0" max="1" step="0.01" value="0.5" title="Điều chỉnh âm lượng">
     </div>
     
-    
-
-</body>
+    </body>
 </html>
