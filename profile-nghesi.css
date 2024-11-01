@@ -173,11 +173,11 @@ body, .no-select {
         background-color: #121212;
     }
 
-    .song p b{
+    .song p b {
         padding-left: 17px;
     }
 
-    .song i{
+    .song i {
         padding-left: -15px;
     }
 
@@ -221,6 +221,10 @@ body, .no-select {
 
     .ten-bai-hat {
         max-width: 150px; /* Điều chỉnh max-width để phù hợp với màn hình nhỏ */
+        font-weight: bold;
+        white-space: nowrap;       /* Không cho chữ xuống dòng */
+        overflow: hidden;          /* Ẩn phần chữ thừa */
+        text-overflow: ellipsis;   /* Thêm dấu '...' cho chữ bị tràn */
     }
 
     .thanh-thoi-gian {
@@ -259,6 +263,7 @@ body, .no-select {
         justify-content: center; /* Căn giữa các phần tử trong điều khiển */
     }
 }
+
 
 /*--------------------------------------------------------------------------------------------------*/
 .nghe-si-header {
@@ -549,10 +554,12 @@ body, .no-select {
 }
 
 .ten-bai-hat {
-    white-space: nowrap;        /* Không cho phép text xuống dòng */
-    overflow: hidden;           /* Ẩn phần chữ bị tràn */
-    text-overflow: ellipsis;    /* Thêm dấu ba chấm "..." khi chữ bị tràn */
-    max-width: 100%;      
+    white-space: nowrap;       /* Không cho chữ xuống dòng */
+    overflow: hidden;          /* Ẩn phần chữ thừa */
+    text-overflow: ellipsis;   /* Thêm dấu '...' cho chữ bị tràn */
+    max-width: 200px;          /* Đặt chiều rộng tối đa cho khung */
+    font-size: 16px;           /* Điều chỉnh kích thước chữ theo ý bạn */
+    font-weight: bold;
 }
 
 .ten-nghe-si {

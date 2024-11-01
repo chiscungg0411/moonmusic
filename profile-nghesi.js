@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /*---------------------------------------------------------------------------------------------*/
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
     const nutPhat = document.querySelectorAll(".play-button");
     const thanhNhac = document.querySelector(".trinh-phat");
     const nutPhatTamDung = document.getElementById("phat-tam-dung");
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
             phatBaiHat(
                 "Sắp Nổi Tiếng",
                 "HIEUTHUHAI",
-                "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/HIEUTHUHAI%20-%20S%E1%BA%AFp%20N%E1%BB%95i%20Ti%E1%BA%BFng%20(prod.%20by%20Kewtiie)%20%5BOfficial%20Lyric%20Video%5D.mp3?v=1730224508456"
+                "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/HIEUTHUHAI%20-%20S%E1%BA%AFp%20N%E1%BB%93i%20Ti%E1%BA%BFng%20(prod.%20by%20Kewtiie)%20%5BOfficial%20Lyric%20Video%5D.mp3?v=1730224508456"
             );
         });
     });
@@ -83,6 +83,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if (audioPlayer.duration) { // Kiểm tra xem độ dài có tồn tại không
             thanhThoiGian.value = audioPlayer.currentTime; // Cập nhật vị trí thanh thời gian
         }
+    });
+
+    // Khi bài hát kết thúc
+    audioPlayer.addEventListener("ended", function() {
+        togglePlayPause(false); // Đặt icon về trạng thái phát
     });
 
     // Xử lý khi người dùng kéo thanh thời gian
@@ -117,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("tong-thoi-gian").textContent = "0:00"; // Đặt tổng thời gian bài hát là 0:00
         thanhThoiGian.value = 0; // Đặt thanh thời gian về 0 khi reset
         thanhThoiGian.max = 100; // Đặt giá trị max mặc định cho thanh thời gian
+        document.getElementById("thoi-gian-hien-tai").textContent = "0:00"; // Đặt thời gian hiện tại về 0
     }
 
     function togglePlayPause(isPlaying) {
@@ -172,3 +178,4 @@ document.addEventListener("DOMContentLoaded", function() {
         audioPlayer.volume = thanhAmLuong.value / 100; // Đặt âm lượng
     });
 });
+
