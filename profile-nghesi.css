@@ -263,7 +263,8 @@ body, .no-select {
 
     .dieu-khien {
         justify-content: center; /* Căn giữa các phần tử trong điều khiển */
-        margin-left: -70px;
+        margin-left: -25px;
+        gap: 11px;
     }
 }
 
