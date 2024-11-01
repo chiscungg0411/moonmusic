@@ -53,21 +53,21 @@
 
     <div class="popular-songs">
         <h2>Nổi bật</h2>
-        <div class="song"> 
+        <div class="song" data-title="Sắp Nổi Tiếng" data-artist="HIEUTHUHAI" data-url="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/spotifydown.com%20-%20S%E1%BA%AFp%20N%E1%BB%95i%20Ti%E1%BA%BFng.mp3?v=1730451481572">
             <p>1</p>
             <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/74a1f39a-1ad6-44b4-a5a8-fed169aadcdd.image.png?v=1730229798801" alt="Song Image">
             <p>Sắp Nổi Tiếng</p>
             <p><b>3:42</b></p>
         </div>
 
-        <div class="song">
+        <div class="song" data-title="Exit Sign" data-artist="HIEUTHUHAI" data-url="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/spotifydown.com%20-%20Exit%20Sign.mp3?v=1730486691570">
             <p>2</p>
             <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/74a1f39a-1ad6-44b4-a5a8-fed169aadcdd.image.png?v=1730229798801" alt="Song Image">
             <p>Exit Sign</p>
             <p><b>3:21</b></p>
         </div>
 
-        <div class="song">
+        <div class="song" data-title="KIM PHÚT, KIM GIỜ (feat. Negav, Pháp Kiều, ISAAC, HIEUTHUHAI & HURRYKNG)" data-artist="HIEUTHUHAI" data-url="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/spotifydown.com%20-%20KIM%20PH%C3%9AT%2C%20KIM%20GI%E1%BB%9C%20(feat.%20HURRYKNG%2C%20HIEUTHUHAI%2C%20Negav%2C%20Ph%C3%A1p%20Ki%E1%BB%81u%20%26%20Isaac).mp3?v=1730488161246">
             <p>3</p>
             <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/8ec17b73-0678-408b-a3a7-0c086b09ff12.image.png?v=1730118933904" alt="Song Image">
             <p>KIM PHÚT, KIM GIỜ (feat. Negav, Pháp Kiều, ISAAC, HIEUTHUHAI & HURRYKNG)</p>
@@ -136,31 +136,32 @@
                 <p class="ten-bai-hat">Sắp Nổi Tiếng</p>
                 <p class="ten-nghe-si">HIEUTHUHAI</p>
             </div>
-            <!-- <button class="them-vao-ds-phat"><i class="fa-solid fa-plus"></i></button> -->
+            <!-- <button class="them-vao-ds-phat" aria-label="Thêm vào danh sách phát"><i class="fa-solid fa-plus"></i></button> -->
         </div>
     
         <div class="thanh-nhac">
             <div class="dieu-khien">
-                <button onclick="baiTruoc()"><i class="fa-solid fa-shuffle"></i></button>
-                <button onclick="baiTruoc()"><i class="fas fa-step-backward"></i></button>
-                <button onclick="phatTamDung()" id="phat-tam-dung"><i class="fa-solid fa-play"></i></button>
-                <button onclick="baiTiepTheo()"><i class="fa-solid fa-forward-step"></i></button>
-                <button onclick="lapLai()"><i class="fa-solid fa-rotate-right"></i></button>
+                <button onclick="baiTruoc()" aria-label="Phát bài trước" tabindex="0"><i class="fa-solid fa-shuffle"></i></button>
+                <button onclick="baiTruoc()" aria-label="Quay lại" tabindex="0"><i class="fas fa-step-backward"></i></button>
+                <button onclick="phatTamDung()" id="phat-tam-dung" aria-label="Phát hoặc tạm dừng" tabindex="0"><i class="fa-solid fa-play"></i></button>
+                <button onclick="baiTiepTheo()" aria-label="Bài tiếp theo" tabindex="0"><i class="fa-solid fa-forward-step"></i></button>
+                <button onclick="lapLai()" aria-label="Lặp lại bài hát" tabindex="0"><i class="fa-solid fa-rotate-right"></i></button>
             </div>
             <div class="thoi-gian">
                 <span id="thoi-gian-hien-tai">0:00</span>
-                <input type="range" id="thanh-thoi-gian" min="0" max="100" value="3" title="Thời gian bài hát">
+                <input type="range" id="thanh-thoi-gian" min="0" max="222" value="3" title="Thời gian bài hát">
                 <span id="tong-thoi-gian">3:42</span>
             </div>
         </div>
     
         <div class="am-luong">
-            <button id="nut-tat-tieng" class="nut-tat-tieng">
+            <button id="nut-tat-tieng" class="nut-tat-tieng" aria-label="Bật hoặc tắt tiếng" tabindex="0">
                 <i class="fa-solid fa-volume-high" id="icon-volume"></i>
             </button>
-            <input type="range" id="thanh-am-luong" min="0" max="100" value="50">
+            <input type="range" id="thanh-am-luong" min="0" max="100" value="50" title="Điều chỉnh âm lượng" tabindex="0">
         </div>
     </div>
+    
     
     </body>
 </html>

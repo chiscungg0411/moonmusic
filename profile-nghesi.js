@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const iconVolume = document.getElementById("icon-volume");
     const thanhAmLuong = document.getElementById("thanh-am-luong");
     const thanhThoiGian = document.getElementById("thanh-thoi-gian"); // Thêm thanh thời gian
-    const audioPlayer = new Audio();
+    const songInfo = document.querySelector('.thong-tin-bai-hat'); // Thông tin bài hát
+
+    const audioPlayer = new Audio(); // Đối tượng audioPlayer duy nhất
 
     let dangPhat = false;
     let dangTatTieng = false; // Trạng thái tắt tiếng
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ẩn thông tin bài hát ban đầu
     resetTrackInfo();
 
-    // Khi nhấn nút "Phát"
+    // Khi nhấn nút "Phát" trên thanh nhạc
     nutPhat.forEach(button => {
         button.addEventListener("click", function() {
             thanhNhac.style.display = "flex"; // Hiển thị thanh nhạc
@@ -78,13 +80,34 @@ document.addEventListener("DOMContentLoaded", function() {
         thanhAmLuong.value = audioPlayer.volume * 100; // Cập nhật thanh âm lượng
 
         // Cập nhật thanh thời gian
-        thanhThoiGian.value = (audioPlayer.currentTime / audioPlayer.duration) * 100; // Tính tỷ lệ phần trăm thời gian
+        if (audioPlayer.duration) { // Kiểm tra xem độ dài có tồn tại không
+            thanhThoiGian.value = audioPlayer.currentTime; // Cập nhật vị trí thanh thời gian
+        }
     });
 
     // Xử lý khi người dùng kéo thanh thời gian
     thanhThoiGian.addEventListener("input", function() {
-        const thoiGianChon = (thanhThoiGian.value / 100) * audioPlayer.duration; // Tính thời gian chọn
+        const thoiGianChon = thanhThoiGian.value; // Tính thời gian chọn
         audioPlayer.currentTime = thoiGianChon; // Đặt thời gian bài hát
+    });
+
+    // Lấy tất cả các bài hát
+    const songs = document.querySelectorAll('.song');
+
+    // Thêm sự kiện click cho từng bài hát
+    songs.forEach(song => {
+        song.addEventListener('click', () => {
+            // Lấy thông tin từ thuộc tính data
+            const title = song.getAttribute('data-title');
+            const artist = song.getAttribute('data-artist');
+            const url = song.getAttribute('data-url');
+
+            // Hiển thị thanh nhạc nếu chưa hiển thị
+            thanhNhac.style.display = "flex";
+
+            // Phát bài hát đã chọn
+            phatBaiHat(title, artist, url);
+        });
     });
 
     // Hàm reset thông tin bài hát
@@ -92,6 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".ten-bai-hat").textContent = ""; // Xóa tên bài hát
         document.querySelector(".ten-nghe-si").textContent = ""; // Xóa tên nghệ sĩ
         document.getElementById("tong-thoi-gian").textContent = "0:00"; // Đặt tổng thời gian bài hát là 0:00
+        thanhThoiGian.value = 0; // Đặt thanh thời gian về 0 khi reset
+        thanhThoiGian.max = 100; // Đặt giá trị max mặc định cho thanh thời gian
     }
 
     function togglePlayPause(isPlaying) {
@@ -107,11 +132,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function toggleMute() {
         if (dangTatTieng) {
-            // Bật tiếng
             audioPlayer.volume = volumeCu; // Khôi phục âm lượng
             iconVolume.classList.replace("fa-volume-xmark", "fa-volume-high"); // Đổi biểu tượng
         } else {
-            // Tắt tiếng
             volumeCu = audioPlayer.volume; // Lưu âm lượng hiện tại
             audioPlayer.volume = 0; // Đặt âm lượng thành 0
             iconVolume.classList.replace("fa-volume-high", "fa-volume-xmark"); // Đổi biểu tượng
@@ -130,7 +153,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Cập nhật tổng thời gian
         audioPlayer.addEventListener("loadedmetadata", function() {
-            document.getElementById("tong-thoi-gian").textContent = formatTime(audioPlayer.duration);
+            const tongThoiGianGiay = audioPlayer.duration; // Lấy tổng thời gian
+            document.getElementById("tong-thoi-gian").textContent = formatTime(tongThoiGianGiay); // Cập nhật tổng thời gian hiển thị
+            thanhThoiGian.max = tongThoiGianGiay; // Cập nhật max cho thanh thời gian
+            thanhThoiGian.value = 0; // Đặt thanh thời gian về 0 khi bắt đầu phát
         });
     }
 
@@ -143,10 +169,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Cập nhật âm lượng từ thanh âm lượng
     thanhAmLuong.addEventListener("input", function() {
-        if (!dangTatTieng) {
-            audioPlayer.volume = thanhAmLuong.value / 100; // Đặt âm lượng
-        }
+        audioPlayer.volume = thanhAmLuong.value / 100; // Đặt âm lượng
     });
 });
-
-
