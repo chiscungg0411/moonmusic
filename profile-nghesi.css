@@ -107,7 +107,7 @@ body, .no-select {
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 150px;
+        padding-bottom: 160px;
     }
     .thanhdieuhuong {
         flex-direction: column;
@@ -215,7 +215,7 @@ body, .no-select {
     }
 
     .thong-tin-bai-hat {
-        margin-left: -20px;
+        margin-left: -170px;
         text-align: center; /* Căn giữa văn bản */
         margin-bottom: 10px; /* Thêm khoảng cách dưới */
     }
@@ -249,7 +249,7 @@ body, .no-select {
 
     .am-luong {
         gap: 0; /* Giảm khoảng cách giữa icon loa và thanh âm lượng */
-        margin-right: 0; /* Không có margin bên phải */
+        margin-right:-20px;
     }
 
     .am-luong input[type="range"] {
@@ -263,6 +263,7 @@ body, .no-select {
 
     .dieu-khien {
         justify-content: center; /* Căn giữa các phần tử trong điều khiển */
+        margin-left: -70px;
     }
 }
 
@@ -657,6 +658,22 @@ body, .no-select {
 #thanh-am-luong:hover {
     background: #5a5a5a;
 }
+
+#phat-tam-dung {
+    width: 40px; /* Đặt chiều rộng cố định cho nút */
+    height: 40px; /* Đặt chiều cao cố định cho nút */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#phat-tam-dung i {
+    font-size: 20px; /* Kích thước cố định cho icon */
+    width: 20px; /* Chiều rộng cố định cho icon */
+    height: 20px; /* Chiều cao cố định cho icon */
+    line-height: 20px;
+}
+
 
 #thanh-am-luong::-webkit-slider-thumb {
     -webkit-appearance: none;
