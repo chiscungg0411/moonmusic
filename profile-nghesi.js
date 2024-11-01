@@ -29,3 +29,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const nutPhat = document.querySelectorAll(".play-button");
+    const thanhNhac = document.getElementById("thanh-nhac");
+    const nutPhatTamDung = document.getElementById("phat-tam-dung");
+    const bieuTuongPhatTamDung = nutPhatTamDung.querySelector("i");
+    const audioPlayer = new Audio(); // Tạo đối tượng âm thanh
+    let dangPhat = false;
+
+    // Khi nhấn nút "Phát"
+    nutPhat.forEach(button => {
+        button.addEventListener("click", function() {
+            thanhNhac.style.display = "flex"; // Hiển thị thanh nhạc
+            phatBaiHat(
+                "Sắp Nổi Tiếng",
+                "HIEUTHUHAI",
+                "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/HIEUTHUHAI%20-%20S%E1%BA%AFp%20N%E1%BB%95i%20Ti%E1%BA%BFng%20(prod.%20by%20Kewtiie)%20%5BOfficial%20Lyric%20Video%5D.mp3?v=1730224508456"
+            );
+        });
+    });
+
+    // Chức năng phát/tạm dừng nhạc
+    nutPhatTamDung.addEventListener("click", function() {
+        if (dangPhat) {
+            bieuTuongPhatTamDung.classList.replace("fa-pause", "fa-play");
+            audioPlayer.pause(); // Dừng phát nhạc
+            dangPhat = false;
+        } else {
+            bieuTuongPhatTamDung.classList.replace("fa-play", "fa-pause");
+            audioPlayer.play(); // Phát nhạc
+            dangPhat = true;
+        }
+    });
+
+    function phatBaiHat(tenBaiHat, tenNgheSi, duongDan) {
+        document.querySelector(".ten-bai-hat").textContent = tenBaiHat;
+        document.querySelector(".ten-nghe-si").textContent = tenNgheSi;
+        audioPlayer.src = duongDan; // Đặt link nhạc
+        audioPlayer.play();         // Phát nhạc ngay khi chọn
+        dangPhat = true;
+        bieuTuongPhatTamDung.classList.replace("fa-play", "fa-pause");
+    }
+});
+
