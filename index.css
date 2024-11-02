@@ -508,6 +508,11 @@ body, .no-select {
     color: #808080;
 }
 
+.disabled {
+    pointer-events: none; /* Ngăn chặn mọi tương tác */
+    opacity: 0.5; /* Làm mờ để chỉ ra rằng không sử dụng được */
+}
+
 /* Cập nhật kiểu cho thanh âm lượng */
 #thanh-am-luong {
     -webkit-appearance: none;
