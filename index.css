@@ -107,7 +107,7 @@ body, .no-select {
 @media (max-width: 768px) {
 /*--------------------------------------THANH ĐIỀU HƯỚNg--------------------------------------*/
 body {
-    padding-bottom: 180px;
+    padding-bottom: 70px;
 }
 .thanhdieuhuong {
     display: flex;
