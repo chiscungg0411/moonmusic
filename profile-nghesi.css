@@ -215,6 +215,7 @@ body, .no-select {
     }
 
     .thong-tin-bai-hat {
+        margin-left: -20px;
         text-align: center; /* Căn giữa văn bản */
         margin-bottom: 10px; /* Thêm khoảng cách dưới */
     }
@@ -224,7 +225,8 @@ body, .no-select {
         font-weight: bold;
         white-space: nowrap;       /* Không cho chữ xuống dòng */
         overflow: hidden;          /* Ẩn phần chữ thừa */
-        text-overflow: ellipsis;   /* Thêm dấu '...' cho chữ bị tràn */
+        text-overflow: ellipsis;
+           /* Thêm dấu '...' cho chữ bị tràn */
     }
 
     .thanh-thoi-gian {
@@ -309,7 +311,7 @@ body, .no-select {
     align-items: left;
     border-radius: 10px;
     margin-left: -3px;
-    margin-top: 4px;
+    margin-top: 1px;
     width: 25px;
     height: auto;
 }
@@ -415,6 +417,10 @@ body, .no-select {
     cursor: pointer;
 }
 
+.song.hidden {
+    display: none;
+}
+
 .song:hover {
     background-color: #282828;
 }
@@ -510,12 +516,6 @@ body, .no-select {
     width: 42%;
 }
 
-.bia-album {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    border-radius: 5px;
-}
 
 .chi-tiet-bai-hat p {
     margin: 0;
@@ -543,7 +543,9 @@ body, .no-select {
 .bia-album {
     width: 40px;
     height: 40px;
-    margin-right: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+    margin-left: 30px;
 }
 
 /* Chi tiết bài hát */
@@ -572,6 +574,7 @@ body, .no-select {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
+    
 }
 
 .dieu-khien button {
@@ -648,6 +651,7 @@ body, .no-select {
     background: #4b4b4b;
     border-radius: 5px;
     cursor: pointer;
+    margin-right:50px;
 }
 
 #thanh-am-luong:hover {
