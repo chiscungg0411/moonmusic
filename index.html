@@ -211,7 +211,42 @@
       <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/b5e694c5-ab40-4e57-9bee-ca4f7030fae1.image.png?v=1730434377639" alt="Radio 3" />
       <p>Với HIEUTHUHAI, RPT MCK, ANH TRAI SAY HI và nhiều nghệ sĩ khác nữa</p>
     </div>
+    
   </div>
 </div>
+
+<div class="trinh-phat"> 
+  <div class="thong-tin-bai-hat">
+      <img class="bia-album" src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/9450bbb9-46e5-4af0-b954-9671fd7f3628.image.png?v=1730523521212" alt="Bìa Album" class="bia-album">
+      <div class="chi-tiet-bai-hat">
+          <p class="ten-bai-hat">--</p>
+          <p class="ten-nghe-si">--</p>
+      </div>
+  </div>
+
+  <div class="thanh-nhac">
+      <div class="dieu-khien">
+          <button onclick="baiTron()" aria-label="Phát bài trước" tabindex="0"><i class="fa-solid fa-shuffle"></i></button>
+          <button onclick="baiTruoc()" aria-label="Quay lại" tabindex="0"><i class="fas fa-step-backward"></i></button>
+          <button onclick="phatTamDung()" id="phat-tam-dung" aria-label="Phát hoặc tạm dừng" tabindex="0"><i class="fa-solid fa-play"></i></button>
+          <button onclick="baiTiepTheo()" aria-label="Bài tiếp theo" tabindex="0"><i class="fa-solid fa-forward-step"></i></button>
+          <button onclick="lapLai()" aria-label="Lặp lại bài hát" tabindex="0"><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+      <div class="thoi-gian">
+          <span id="thoi-gian-hien-tai">0:00</span>
+          <input type="range" id="thanh-thoi-gian" min="0" max="222" value="3" title="Thời gian bài hát">
+          <span id="tong-thoi-gian">3:42</span>
+      </div>
+  </div>
+
+  <div class="am-luong">
+      <button id="nut-tat-tieng" class="nut-tat-tieng" aria-label="Bật hoặc tắt tiếng" tabindex="0">
+          <i class="fa-solid fa-volume-high" id="icon-volume"></i>
+      </button>
+      <input type="range" id="thanh-am-luong" min="0" max="100" value="50" title="Điều chỉnh âm lượng" tabindex="0">
+  </div>
+</div>
+
+  
 </body>
 </html>
