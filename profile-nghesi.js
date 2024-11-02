@@ -38,8 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const iconVolume = document.getElementById("icon-volume");
     const thanhAmLuong = document.getElementById("thanh-am-luong");
     const thanhThoiGian = document.getElementById("thanh-thoi-gian");
+    const songInfo = document.querySelector('.thong-tin-bai-hat');
     const audioPlayer = new Audio();
-    
+
     let dangPhat = false;
     let dangTatTieng = false;
     let volumeCu = 1;
@@ -58,21 +59,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     audioPlayer.addEventListener("timeupdate", () => {
         document.getElementById("thoi-gian-hien-tai").textContent = formatTime(audioPlayer.currentTime);
-        thanhThoiGian.value = audioPlayer.currentTime;
+        thanhAmLuong.value = audioPlayer.volume * 100;
+        if (audioPlayer.duration) thanhThoiGian.value = audioPlayer.currentTime;
     });
 
     audioPlayer.addEventListener("ended", () => togglePlayPause(false));
     thanhThoiGian.addEventListener("input", () => audioPlayer.currentTime = thanhThoiGian.value);
 
-    const songs = document.querySelectorAll('.song');
+    const songs = document.querySelectorAll('.song', '.song.hidden');
     songs.forEach(song => {
         song.addEventListener('click', () => {
             const title = song.getAttribute('data-title');
             const artist = song.getAttribute('data-artist');
             const url = song.getAttribute('data-url');
-            const albumImage = song.getAttribute('data-image') || "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/3645bd2d-2409-47d8-8e45-5d6f345dd7c2.image.png?v=1730479393114";
             thanhNhac.style.display = "flex";
-            phatBaiHat(title, artist, url, albumImage);
+            phatBaiHat(title, artist, url);
         });
     });
 
@@ -108,10 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
         dangTatTieng = !dangTatTieng;
     }
 
-    function phatBaiHat(tenBaiHat, tenNgheSi, duongDan, albumImage) {
+    function phatBaiHat(tenBaiHat, tenNgheSi, duongDan) {
         document.querySelector(".ten-bai-hat").textContent = tenBaiHat;
         document.querySelector(".ten-nghe-si").textContent = tenNgheSi;
-        document.querySelector(".bia-album").src = albumImage;
+        document.querySelector(".bia-album").src = "https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/95bf2fee-ba53-4498-8636-0762dd66b978.image.png?v=1730173870408";
         audioPlayer.src = duongDan;
         audioPlayer.play();
         dangPhat = true;
@@ -135,4 +136,3 @@ document.addEventListener('DOMContentLoaded', function () {
         audioPlayer.volume = thanhAmLuong.value / 100;
     });
 });
-
