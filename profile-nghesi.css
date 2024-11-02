@@ -597,6 +597,11 @@ body, .no-select {
     align-items: center;
 }
 
+.disabled {
+    pointer-events: none; /* Ngăn chặn mọi tương tác */
+    opacity: 0.5; /* Làm mờ để chỉ ra rằng không sử dụng được */
+}
+
 /* Cập nhật kiểu cho thanh thời gian */
 #thanh-thoi-gian {
     -webkit-appearance: none;
