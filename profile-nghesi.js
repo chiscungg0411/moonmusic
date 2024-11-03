@@ -247,6 +247,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const dieuKhienElements = [dieuKhien, thanhThoiGian, thanhAmLuong, nutTatTieng];
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
+
+    audioPlayer.addEventListener("ended", () => {
+        if (cheDoLap === 1) {
+            phatBaiHatHienTai(); // Lặp lại bài hiện tại
+        } else if (cheDoPhatNgauNhien) {
+            phatBaiNgauNhienKhongTrung(); // Phát bài ngẫu nhiên không trùng
+        } else if (cheDoLap === 2) {
+            phatBaiHatTiepTheo(); // Lặp lại tất cả bài hát
+        } else {
+            phatBaiHatTiepTheo(); // Chuyển sang bài tiếp theo
+        }
+    });
 });
 
 
