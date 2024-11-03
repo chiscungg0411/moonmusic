@@ -106,7 +106,7 @@ body, .no-select {
 
 @media (max-width: 768px) {
     body {
-        padding-bottom: 180px;
+        padding-bottom: 60px;
     }
     .thanhdieuhuong {
         display: flex;
@@ -286,7 +286,7 @@ body, .no-select {
 }
 
 .thoi-gian {
-    margin-left: 185px;
+    margin-left: 215px;
 }
 
 .thoi-gian, .am-luong {
@@ -296,7 +296,7 @@ body, .no-select {
 
 .am-luong {
     gap: 0; /* Giảm khoảng cách giữa icon loa và thanh âm lượng */
-    margin-right: 45px;
+    padding-right: 50px;
 }
 
 .am-luong input[type="range"] {
