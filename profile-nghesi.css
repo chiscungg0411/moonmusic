@@ -183,15 +183,30 @@ body, .no-select {
     .bg-cover {
         height: 200px;
     }
+
+    .nghe-si {
+        flex: none;
+    }
+
     .nghe-si img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     .popular-songs {
         padding: 20px;
         color: white;
         background-color: #121212;
+    }
+
+    .noi-dung-chinh p {
+        font-size: 13px;
+        
+    }
+
+    .noi-dung-chinh p b {
+        font-size: 15px;
+
     }
 
     .song p b {
@@ -215,6 +230,8 @@ body, .no-select {
     .album {
         width: 90%; /* Giảm chiều rộng của album cho phù hợp với màn hình nhỏ */
         margin: 10px 0; /* Tạo khoảng cách giữa các album */
+        width: 180px;
+        margin-left: -10px;
     }
 
     .album-container {
@@ -228,6 +245,11 @@ body, .no-select {
 
     .album p b {
         font-size: 16px; /* Giảm kích thước chữ cho tên album */
+    }
+
+    .radio-item {
+        padding: 8px;
+        margin-right: 20px;
     }
 /*----------------------------------------TRÌNH PHÁT NHẠC*/
 .trinh-phat {
@@ -309,7 +331,6 @@ body, .no-select {
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 30px;
 }
 
 .bg-cover {

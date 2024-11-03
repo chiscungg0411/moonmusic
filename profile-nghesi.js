@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     xemThemButton.addEventListener('click', function() {
         // Hiển thị các phần tử có class 'hidden'
         document.querySelectorAll('.song.hidden').forEach(function(song) {
-            song.classList.remove('hidden');
+            song.classList.remove('hidden');    
         });
         
         // Ẩn nút "Xem thêm" sau khi hiển thị thêm các bài hát
