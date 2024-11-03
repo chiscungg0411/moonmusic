@@ -539,6 +539,11 @@ body, .no-select {
 /*-------------------------------------------------------------------------------*/
 
 /* Thanh nhạc ở cuối trang */
+
+.thanh-nhac{
+    margin-left:-195px;
+}
+
 #thanh-nhac {
     display: none; /* Ẩn thanh nhạc mặc định */
     position: fixed;
@@ -548,9 +553,9 @@ body, .no-select {
     background-color: #181818;
     display: flex;
     align-items: center;
-    padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
     z-index: 10;
+    margin-right: 100px;
 }
 
 /* Thông tin bài hát */
@@ -635,7 +640,7 @@ body, .no-select {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
-    margin-left:-10px;
+    margin-left: 190px;
     
 }
 
@@ -645,7 +650,7 @@ body, .no-select {
     border: none;
     cursor: pointer;
     font-size: 18px;
-    margin-left: 22px;
+    margin-left: 20px;
 }
 
 .dieu-khien button:hover {
@@ -666,7 +671,7 @@ body, .no-select {
 /* Cập nhật kiểu cho thanh thời gian */
 #thanh-thoi-gian {
     -webkit-appearance: none;
-    width: 200px;
+    width: 600px;
     height: 5px;
     background: #4b4b4b;
     border-radius: 5px;
@@ -686,6 +691,8 @@ body, .no-select {
     background: #fff;
     cursor: pointer;
 }
+
+
 
 /* Thanh âm lượng */
 .am-luong {
