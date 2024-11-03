@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let dangTatTieng = false;
     let volumeCu = 1;
     let cheDoLap = 0; // 0: Không lặp, 1: Lặp một bài, 2: Lặp tất cả
-    let cheDoPhatNgauNhien = false; // Chế độ phát ngẫu nhiên
+    let cheDoPhatNgauNhien = false;
     let baiDaPhat = []; // Mảng lưu trữ các chỉ số bài hát đã phát
 
     resetTrackInfo();
@@ -90,11 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (cheDoPhatNgauNhien) {
             phatBaiNgauNhienKhongTrung(); // Phát bài ngẫu nhiên không trùng
         } else if (cheDoLap === 2) {
-            phatBaiHatTiepTheo(); // Lặp lại tất cả bài hát
+            phatBaiHatTiepTheo(); // Lặp lại tất cả từ đầu nếu đến cuối
         } else {
-            dangPhat = false; // Dừng phát nhạc
-            nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            imgSong.classList.remove("xoay"); // Dừng xoay ảnh
+            phatBaiHatTiepTheo(); // Chuyển sang bài tiếp theo nếu không ở chế độ lặp
         }
     });
 
@@ -175,7 +173,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function phatBaiHatTiepTheo() {
-        chiSoBaiHatHienTai = (chiSoBaiHatHienTai + 1) % danhSachBaiHat.length;
+        chiSoBaiHatHienTai++;
+        
+        // Nếu đến cuối danh sách, quay lại bài đầu tiên khi ở chế độ lặp tất cả
+        if (chiSoBaiHatHienTai >= danhSachBaiHat.length) {
+            chiSoBaiHatHienTai = 0; // Quay lại bài đầu tiên
+        }
+        
         phatBaiHat(danhSachBaiHat[chiSoBaiHatHienTai], true);
     }
 
@@ -247,16 +251,5 @@ document.addEventListener('DOMContentLoaded', function () {
         const dieuKhienElements = [dieuKhien, thanhThoiGian, thanhAmLuong, nutTatTieng];
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
-
-    audioPlayer.addEventListener("ended", () => {
-        if (cheDoLap === 1) {
-            phatBaiHatHienTai(); // Lặp lại bài hiện tại
-        } else if (cheDoPhatNgauNhien) {
-            phatBaiNgauNhienKhongTrung(); // Phát bài ngẫu nhiên không trùng
-        } else if (cheDoLap === 2) {
-            phatBaiHatTiepTheo(); // Lặp lại tất cả bài hát
-        } else {
-            phatBaiHatTiepTheo(); // Chuyển sang bài tiếp theo
-        }
-    });
 });
+
