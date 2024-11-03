@@ -251,6 +251,7 @@ body, .no-select {
         padding: 8px;
         margin-right: 20px;
     }
+
 /*----------------------------------------TRÌNH PHÁT NHẠC*/
 .trinh-phat {
     flex-direction: column; /* Chuyển sang bố trí theo cột */
@@ -284,15 +285,18 @@ body, .no-select {
     margin-top: 10px; /* Thêm khoảng cách trên */
 }
 
+.thoi-gian {
+    margin-left: 185px;
+}
+
 .thoi-gian, .am-luong {
-    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    width: 295px; /* Chiếm toàn bộ chiều rộng */
     justify-content: center; /* Căn giữa nội dung */
-    margin: 5px 0; /* Thêm khoảng cách giữa các phần tử */
 }
 
 .am-luong {
     gap: 0; /* Giảm khoảng cách giữa icon loa và thanh âm lượng */
-    margin-right:-20px;
+    margin-right: 45px;
 }
 
 .am-luong input[type="range"] {
@@ -306,8 +310,7 @@ body, .no-select {
 
 .dieu-khien {
     justify-content: center; /* Căn giữa các phần tử trong điều khiển */
-    margin-left: -25px;
-    gap: 11px;
+    padding-right:15px;
 }
 }
 
