@@ -226,14 +226,15 @@ body, .no-select {
         margin-right: -15px;
     }
 
+
     .popular-album {
-        flex-direction: column; /* Đặt các phần tử thành cột */
-        align-items: center; /* Căn giữa các phần tử */
+        flex-direction: column;
+        align-items: center;
     }
 
     .album {
-        width: 90%; /* Giảm chiều rộng của album cho phù hợp với màn hình nhỏ */
-        margin: 10px 0; /* Tạo khoảng cách giữa các album */
+        width: 90%; 
+        margin: 10px 0; 
         width: 180px;
         margin-left: -10px;
     }
@@ -444,13 +445,34 @@ body, .no-select {
     border-color: #fff;
 }
 
+.thuoc-tinh-bai-hat {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    font-size: 15px;
+    color: #c9c9c9;
+}
+
+
 .icon-dong-ho {
-    margin-top: -30px;
-    margin-bottom: 10px;
-    padding-right: 55px;
+    padding-right: 55px; /* Xóa padding-right để tránh đẩy biểu tượng sang phải quá nhiều */
     text-align: right;
-    align-items: center;
-    
+}
+
+.icon-bai-hat p {
+    font-family: 'Inter';
+    font-weight: bold;
+    padding-top: -15px;
+}
+
+.icon-bai-hat i {
+    margin-right: 15px;
+}
+
+.icon-bai-hat {
+    padding-left:10px;
+    text-align: left;
 }
 
 .popular-songs {
