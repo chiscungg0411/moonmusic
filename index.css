@@ -13,11 +13,17 @@ body, .no-select {
 }
 
 .thanhdieuhuong {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
+    z-index: 1000;
     justify-content: space-between;
     padding: 10px 20px;
     background-color: #181818;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .logo img {
@@ -198,6 +204,10 @@ body, .no-select {
         color: white;
         background-color: #121212;
     }
+    
+    .noi-dung-chinh {
+        margin-top:45px;
+    }
 
     .noi-dung-chinh p {
         font-size: 13px;
@@ -314,10 +324,16 @@ body, .no-select {
     justify-content: center; /* Căn giữa các phần tử trong điều khiển */
     padding-right:15px;
 }
+
+.overflow-auto{
+    overflow: hidden;
+}
+
 }
 /*--------------------------------------------------------------------------------------------------*/
 
 .noi-dung-chinh {
+    margin-top:60px;
     padding: 20px;
     background-color: #000;
     overflow: hidden;
