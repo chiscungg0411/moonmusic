@@ -253,6 +253,8 @@ body, .no-select {
     }
 
 /*----------------------------------------TRÌNH PHÁT NHẠC*/
+
+
 .trinh-phat {
     flex-direction: column; /* Chuyển sang bố trí theo cột */
     align-items: center; /* Căn giữa các phần tử */

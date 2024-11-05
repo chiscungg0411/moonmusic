@@ -222,6 +222,10 @@ body, .no-select {
         margin-right: 0;
     }
 
+    .icon-dong-ho {
+        padding-right: 40px;
+    }
+
     .popular-album {
         flex-direction: column; /* Đặt các phần tử thành cột */
         align-items: center; /* Căn giữa các phần tử */
@@ -437,6 +441,15 @@ body, .no-select {
 
 .follow-button:hover, .more-button:hover {
     border-color: #fff;
+}
+
+.icon-dong-ho {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    padding-right: 55px;
+    text-align: right;
+    align-items: center;
+    
 }
 
 .popular-songs {
