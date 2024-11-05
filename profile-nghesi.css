@@ -223,7 +223,7 @@ body, .no-select {
     }
 
     .icon-dong-ho {
-        padding-right: 40px;
+        margin-right: -15px;
     }
 
     .popular-album {
@@ -240,6 +240,10 @@ body, .no-select {
 
     .album-container {
         padding: 10px; /* Giảm padding cho album-container */
+    }
+
+    .popular-songs h2 {
+        padding-bottom: -10px;
     }
 
     .popular-album h2 {
