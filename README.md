@@ -1,4 +1,4 @@
-# <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/7ce23ef5-dafd-4478-a67e-3e3f84c49659.image.png?v=1730691289166" alt="Logo của Moon Music" width="50" style="vertical-align: middle; margin-top: 10px;" /> Moon Music | Web Player: Music for everyone 🎶
+# <img src="https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/7ce23ef5-dafd-4478-a67e-3e3f84c49659.image.png?v=1730691289166" width="50" style= "padding-top: 15px;" /> Moon Music | Web Player: Music for everyone 🎶
 
 **Moon Music** là một website nghe nhạc trực tuyến với giao diện hiện đại và dễ sử dụng, mang đến cho người dùng trải nghiệm âm nhạc phong phú và thú vị.
 
