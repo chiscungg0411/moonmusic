@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let cheDoLap = 0; // 0: Không lặp, 1: Lặp một bài, 2: Lặp tất cả
     let cheDoPhatNgauNhien = false;
     let baiDaPhat = []; // Mảng lưu trữ các chỉ số bài hát đã phát
-
+    audioPlayer.preload = "auto";
     resetTrackInfo();
     capNhatTrangThaiDieuKhien(false); // Vô hiệu hóa các điều khiển khi tải trang
 
