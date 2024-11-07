@@ -797,7 +797,7 @@ body, .no-select {
     height: 37px;
     background-color: #fff;
     border-radius: 90%;
-    animation: wave 1s ease-in-out infinite;
+    animation: wave 0.5s ease-in-out infinite;
     padding: 0.12cm;
 }
 
@@ -811,10 +811,10 @@ body, .no-select {
 
 @keyframes wave {
     0%, 100% {
-        transform: scaleY(1);
+        transform: scaleY(0.4);
     }
     50% {
-        transform: scaleY(1.5);
+        transform: scaleY(0.8);
     }
 }
 
