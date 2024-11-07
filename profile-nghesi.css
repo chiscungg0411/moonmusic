@@ -792,11 +792,12 @@ body, .no-select {
 
 .wave-circle {
     display:flex;
-    width: 9px;
-    height: 35px;
+    width: 2px;
+    height: 37px;
     background-color: #fff;
     border-radius: 50%;
     animation: wave 0.5s ease-in-out infinite;
+    padding: 0.15cm;
 }
 
 .wave-circle:nth-child(2) {
