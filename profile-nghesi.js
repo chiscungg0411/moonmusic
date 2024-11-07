@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const dieuKhien = document.querySelector(".dieu-khien");
     const audioPlayer = new Audio();
     const imgSong = document.querySelector('.thong-tin-bai-hat img');
-    const waveIconElements = document.querySelectorAll('.wave-icon');
 
     const danhSachBaiHat = Array.from(document.querySelectorAll('.popular-songs .song, .popular-songs .song.hidden'));
     let chiSoBaiHatHienTai = 0;
@@ -51,12 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let cheDoLap = 0; // 0: Không lặp, 1: Lặp một bài, 2: Lặp tất cả
     let cheDoPhatNgauNhien = false;
     let baiDaPhat = []; // Mảng lưu trữ các chỉ số bài hát đã phát
-    audioPlayer.preload = "auto";
+
     resetTrackInfo();
     capNhatTrangThaiDieuKhien(false); // Vô hiệu hóa các điều khiển khi tải trang
 
+    // Ẩn tất cả các wave-icon mặc định
     document.querySelectorAll('.wave-icon').forEach(waveIcon => {
-        waveIcon.style.display = "none";
+        waveIcon.style.display = 'none';
     });
 
     xemThemButton.addEventListener('click', function () {
@@ -90,8 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     audioPlayer.addEventListener("ended", () => {
-        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon') // Ẩn wave-icon khi kết thúc
-        waveIcon.style.display = "none";
+        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none';
         if (cheDoLap === 1) {
             phatBaiHatHienTai(); // Lặp lại bài hiện tại
         } else if (cheDoPhatNgauNhien) {
@@ -113,10 +112,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     danhSachBaiHat.forEach((baiHat, index) => {
         baiHat.addEventListener('click', () => {
-            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none'; // Ẩn wave-icon của bài hiện tại
+            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none';
             chiSoBaiHatHienTai = index;
-            phatBaiHat(baiHat, true);
-            capNhatTrangThaiDieuKhien(true);
+            phatBaiHat(baiHat, true); // Tự động phát khi người dùng nhấn vào bài
+            capNhatTrangThaiDieuKhien(true); // Kích hoạt điều khiển khi bắt đầu phát bài
         });
     });
 
@@ -131,21 +130,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(".bia-album").src = imgSrc;
         audioPlayer.src = url;
 
-        // Chọn .wave-icon của bài hát hiện tại
-        const waveIcon = baiHat.querySelector('.wave-icon');
-
         if (tuDongPhat) {
             audioPlayer.play();
             dangPhat = true;
             nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
-            imgSong.classList.add("xoay");
-            //baiHat.querySelector('.wave-icon').style.display = 'block'; // Hiển thị wave-icon của bài hiện tại
-            waveIcon.style.display = "flex";
+            imgSong.classList.add("xoay"); // Bắt đầu xoay ảnh
+            baiHat.querySelector('.wave-icon').style.display = 'flex'; // Hiển thị wave-icon
         } else {
             dangPhat = false;
             nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            imgSong.classList.remove("xoay");
-            waveIcon.style.display = "none";
+            imgSong.classList.remove("xoay"); // Dừng xoay ảnh
         }
     }
 
@@ -154,17 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
             audioPlayer.pause();
             dangPhat = false;
             nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            imgSong.classList.remove("xoay");
-            // Ẩn sóng nhạc
-            waveIcon.style.display = "none";
+            imgSong.classList.remove("xoay"); // Dừng xoay ảnh
         } else {
             audioPlayer.play();
             dangPhat = true;
             nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
-            imgSong.classList.add("xoay");
-            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'block'; // Hiển thị lại wave-icon
-            // Hiển thị sóng nhạc
-            waveIcon.style.display = "flex";
+            imgSong.classList.add("xoay"); // Bắt đầu xoay ảnh
+            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'flex'; // Hiển thị wave-icon
         }
     }
 
@@ -174,23 +164,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function phatBaiNgauNhienKhongTrung() {
         const baiChuaPhat = danhSachBaiHat.map((_, index) => index).filter(i => !baiDaPhat.includes(i));
+
         if (baiChuaPhat.length === 0) {
             baiDaPhat = [chiSoBaiHatHienTai];
-            chiSoBaiHatHienTai = baiChuaPhat[Math.floor(Math.random() * baiChuaPhat.length)];
-        } else {
-            chiSoBaiHatHienTai = baiChuaPhat[Math.floor(Math.random() * baiChuaPhat.length)];
-            baiDaPhat.push(chiSoBaiHatHienTai);
         }
+        chiSoBaiHatHienTai = baiChuaPhat[Math.floor(Math.random() * baiChuaPhat.length)];
+        baiDaPhat.push(chiSoBaiHatHienTai);
         phatBaiHat(danhSachBaiHat[chiSoBaiHatHienTai], true);
     }
 
     function phatBaiHatTruoc() {
+        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none';
         chiSoBaiHatHienTai = (chiSoBaiHatHienTai - 1 + danhSachBaiHat.length) % danhSachBaiHat.length;
         phatBaiHatHienTai();
     }
 
     function phatBaiHatTiepTheo() {
-        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none'; // Ẩn wave-icon bài hiện tại
+        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none';
         chiSoBaiHatHienTai = (chiSoBaiHatHienTai + 1) % danhSachBaiHat.length;
         phatBaiHat(danhSachBaiHat[chiSoBaiHatHienTai], true);
     }
@@ -264,3 +254,6 @@ document.addEventListener('DOMContentLoaded', function () {
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
 });
+
+
+

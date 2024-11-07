@@ -772,6 +772,10 @@ body, .no-select {
     position: relative;
 }
 
+.wave-icon {
+    display: none;
+}
+
 
 /* Định dạng sóng nhạc */
 .wave-icon {
