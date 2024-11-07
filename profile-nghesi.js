@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dangPhat = false;
             nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
             imgSong.classList.remove("xoay"); // Dừng xoay ảnh
+            danhSachBaiHat[chiSoBaiHatHienTai].querySelectorAll('.wave-circle').forEach(circle => {
+                circle.style.transform = 'translateY(0)';
+            });
         } else {
             audioPlayer.play();
             dangPhat = true;
@@ -254,6 +257,3 @@ document.addEventListener('DOMContentLoaded', function () {
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
 });
-
-
-
