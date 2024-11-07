@@ -786,8 +786,9 @@ body, .no-select {
     display:flex;
     transform: translate(-50%, -50%);
     gap: 5px;
-    padding: 0.2cm;
+    padding: 0.18cm;
     background:#0d0d0dd4;
+    border-radius: 10%;
 }
 
 .wave-circle {
@@ -795,9 +796,9 @@ body, .no-select {
     width: 2px;
     height: 37px;
     background-color: #fff;
-    border-radius: 50%;
-    animation: wave 0.5s ease-in-out infinite;
-    padding: 0.15cm;
+    border-radius: 90%;
+    animation: wave 1s ease-in-out infinite;
+    padding: 0.12cm;
 }
 
 .wave-circle:nth-child(2) {
