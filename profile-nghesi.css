@@ -767,6 +767,49 @@ body, .no-select {
     color: #808080;
 }
 
+/* Định vị các bài hát để chứa sóng nhạc */
+.song {
+    position: relative;
+}
+
+
+/* Định dạng sóng nhạc */
+.wave-icon {
+    position: absolute;
+    top: 50%;
+    left: 65px;
+    display:flex;
+    transform: translate(-50%, -50%);
+    gap: 5px;
+}
+
+.wave-circle {
+    display:flex;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: wave 0.5s ease-in-out infinite;
+}
+
+.wave-circle:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.wave-circle:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.5);
+    }
+}
+
+
 /* Cập nhật kiểu cho thanh âm lượng */
 #thanh-am-luong {
     -webkit-appearance: none;

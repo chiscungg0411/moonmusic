@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dieuKhien = document.querySelector(".dieu-khien");
     const audioPlayer = new Audio();
     const imgSong = document.querySelector('.thong-tin-bai-hat img');
+    const waveIconElements = document.querySelectorAll('.wave-icon');
 
     const danhSachBaiHat = Array.from(document.querySelectorAll('.popular-songs .song, .popular-songs .song.hidden'));
     let chiSoBaiHatHienTai = 0;
@@ -53,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
     audioPlayer.preload = "auto";
     resetTrackInfo();
     capNhatTrangThaiDieuKhien(false); // Vô hiệu hóa các điều khiển khi tải trang
+
+    document.querySelectorAll('.wave-icon').forEach(waveIcon => {
+        waveIcon.style.display = "none";
+    });
 
     xemThemButton.addEventListener('click', function () {
         document.querySelectorAll('.song.hidden').forEach(song => song.classList.remove('hidden'));
@@ -85,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     audioPlayer.addEventListener("ended", () => {
+        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon') // Ẩn wave-icon khi kết thúc
+        waveIcon.style.display = "none";
         if (cheDoLap === 1) {
             phatBaiHatHienTai(); // Lặp lại bài hiện tại
         } else if (cheDoPhatNgauNhien) {
@@ -106,9 +113,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     danhSachBaiHat.forEach((baiHat, index) => {
         baiHat.addEventListener('click', () => {
+            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none'; // Ẩn wave-icon của bài hiện tại
             chiSoBaiHatHienTai = index;
-            phatBaiHat(baiHat, true); // Tự động phát khi người dùng nhấn vào bài
-            capNhatTrangThaiDieuKhien(true); // Kích hoạt điều khiển khi bắt đầu phát bài
+            phatBaiHat(baiHat, true);
+            capNhatTrangThaiDieuKhien(true);
         });
     });
 
@@ -123,15 +131,21 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(".bia-album").src = imgSrc;
         audioPlayer.src = url;
 
+        // Chọn .wave-icon của bài hát hiện tại
+        const waveIcon = baiHat.querySelector('.wave-icon');
+
         if (tuDongPhat) {
             audioPlayer.play();
             dangPhat = true;
             nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
-            imgSong.classList.add("xoay"); // Bắt đầu xoay ảnh
+            imgSong.classList.add("xoay");
+            //baiHat.querySelector('.wave-icon').style.display = 'block'; // Hiển thị wave-icon của bài hiện tại
+            waveIcon.style.display = "flex";
         } else {
             dangPhat = false;
             nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            imgSong.classList.remove("xoay"); // Dừng xoay ảnh
+            imgSong.classList.remove("xoay");
+            waveIcon.style.display = "none";
         }
     }
 
@@ -140,12 +154,17 @@ document.addEventListener('DOMContentLoaded', function () {
             audioPlayer.pause();
             dangPhat = false;
             nutPhatTamDung.querySelector("i").classList.replace("fa-pause", "fa-play");
-            imgSong.classList.remove("xoay"); // Dừng xoay ảnh
+            imgSong.classList.remove("xoay");
+            // Ẩn sóng nhạc
+            waveIcon.style.display = "none";
         } else {
             audioPlayer.play();
             dangPhat = true;
             nutPhatTamDung.querySelector("i").classList.replace("fa-play", "fa-pause");
-            imgSong.classList.add("xoay"); // Bắt đầu xoay ảnh
+            imgSong.classList.add("xoay");
+            danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'block'; // Hiển thị lại wave-icon
+            // Hiển thị sóng nhạc
+            waveIcon.style.display = "flex";
         }
     }
 
@@ -155,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function phatBaiNgauNhienKhongTrung() {
         const baiChuaPhat = danhSachBaiHat.map((_, index) => index).filter(i => !baiDaPhat.includes(i));
-
         if (baiChuaPhat.length === 0) {
             baiDaPhat = [chiSoBaiHatHienTai];
             chiSoBaiHatHienTai = baiChuaPhat[Math.floor(Math.random() * baiChuaPhat.length)];
@@ -163,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
             chiSoBaiHatHienTai = baiChuaPhat[Math.floor(Math.random() * baiChuaPhat.length)];
             baiDaPhat.push(chiSoBaiHatHienTai);
         }
-
         phatBaiHat(danhSachBaiHat[chiSoBaiHatHienTai], true);
     }
 
@@ -173,13 +190,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function phatBaiHatTiepTheo() {
-        chiSoBaiHatHienTai++;
-        
-        // Nếu đến cuối danh sách, quay lại bài đầu tiên khi ở chế độ lặp tất cả
-        if (chiSoBaiHatHienTai >= danhSachBaiHat.length) {
-            chiSoBaiHatHienTai = 0; // Quay lại bài đầu tiên
-        }
-        
+        danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'none'; // Ẩn wave-icon bài hiện tại
+        chiSoBaiHatHienTai = (chiSoBaiHatHienTai + 1) % danhSachBaiHat.length;
         phatBaiHat(danhSachBaiHat[chiSoBaiHatHienTai], true);
     }
 
@@ -252,4 +264,3 @@ document.addEventListener('DOMContentLoaded', function () {
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
 });
-
