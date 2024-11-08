@@ -791,7 +791,6 @@ body, .no-select {
 }
 
 .wave-circle {
-    scaleY:(0);
     display:flex;
     width: 2px;
     height: 37px;
@@ -802,12 +801,10 @@ body, .no-select {
 }
 
 .wave-circle:nth-child(2) {
-    scaleY:(0);
     animation-delay: 0.2s;
 }
 
 .wave-circle:nth-child(3) {
-    scaleY:(0);
     animation-delay: 0.4s;
 }
 

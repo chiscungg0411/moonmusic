@@ -4,6 +4,9 @@ html {
     font-weight: bold;
 }
 
+
+
+
 body, .no-select {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -24,6 +27,7 @@ body, .no-select {
     padding: 10px 20px;
     background-color: #181818;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    cursor:url('https://cdn.glitch.global/f9a3cc04-0b49-46cb-84b6-5390f34696dc/621eca7c-195c-4f28-b0d3-3e6d9b156b1a.image.png?v=1731025993625'), auto;
 }
 
 .logo img {
