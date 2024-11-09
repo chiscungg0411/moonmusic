@@ -130,6 +130,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(".bia-album").src = imgSrc;
         audioPlayer.src = url;
 
+        // Ẩn sóng nhạc của tất cả các bài hát
+        document.querySelectorAll('.wave-icon').forEach(waveIcon => {
+            waveIcon.style.display = 'none';
+        });
+
         if (tuDongPhat) {
             audioPlayer.play();
             dangPhat = true;
@@ -254,3 +259,4 @@ document.addEventListener('DOMContentLoaded', function () {
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
 });
+
