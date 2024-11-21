@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const dieuKhien = document.querySelector(".dieu-khien");
     const audioPlayer = new Audio();
     const imgSong = document.querySelector('.thong-tin-bai-hat img');
-
     const danhSachBaiHat = Array.from(document.querySelectorAll('.popular-songs .song, .popular-songs .song.hidden'));
     let chiSoBaiHatHienTai = 0;
     let dangPhat = false;
@@ -50,6 +49,17 @@ document.addEventListener('DOMContentLoaded', function () {
     let cheDoLap = 0; // 0: Không lặp, 1: Lặp một bài, 2: Lặp tất cả
     let cheDoPhatNgauNhien = false;
     let baiDaPhat = []; // Mảng lưu trữ các chỉ số bài hát đã phát
+
+    // Khôi phục trạng thái từ sessionStorage
+    if (sessionStorage.getItem('currentSong')) {
+        const currentSong = JSON.parse(sessionStorage.getItem('currentSong'));
+        audioPlayer.src = currentSong.url;
+        chiSoBaiHatHienTai = currentSong.index;
+        if (currentSong.isPlaying) {
+            audioPlayer.play();
+            dangPhat = true;
+        }
+    }
 
     resetTrackInfo();
     capNhatTrangThaiDieuKhien(false); // Vô hiệu hóa các điều khiển khi tải trang
@@ -124,11 +134,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const artist = baiHat.getAttribute('data-artist');
         const url = baiHat.getAttribute('data-url');
         const imgSrc = baiHat.querySelector('img').src;
-
         document.querySelector(".ten-bai-hat").textContent = title;
         document.querySelector(".ten-nghe-si").textContent = artist;
         document.querySelector(".bia-album").src = imgSrc;
         audioPlayer.src = url;
+
+        // Lưu trạng thái vào sessionStorage
+        sessionStorage.setItem('currentSong', JSON.stringify({
+            url: url,
+            index: chiSoBaiHatHienTai,
+            isPlaying: tuDongPhat
+        }));
 
         // Ẩn sóng nhạc của tất cả các bài hát
         document.querySelectorAll('.wave-icon').forEach(waveIcon => {
@@ -161,6 +177,11 @@ document.addEventListener('DOMContentLoaded', function () {
             imgSong.classList.add("xoay"); // Bắt đầu xoay ảnh
             danhSachBaiHat[chiSoBaiHatHienTai].querySelector('.wave-icon').style.display = 'flex'; // Hiển thị wave-icon
         }
+
+        // Cập nhật trạng thái phát vào sessionStorage
+        const currentSong = JSON.parse(sessionStorage.getItem('currentSong'));
+        currentSong.isPlaying = dangPhat;
+        sessionStorage.setItem('currentSong', JSON.stringify(currentSong));
     }
 
     function phatBaiHatHienTai() {
@@ -169,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function phatBaiNgauNhienKhongTrung() {
         const baiChuaPhat = danhSachBaiHat.map((_, index) => index).filter(i => !baiDaPhat.includes(i));
-
         if (baiChuaPhat.length === 0) {
             baiDaPhat = [chiSoBaiHatHienTai];
         }
@@ -232,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const nutPhatNgauNhien = document.querySelector('.fa-shuffle').closest("button");
     nutPhatNgauNhien.addEventListener("click", () => {
         cheDoPhatNgauNhien = !cheDoPhatNgauNhien;
-
         if (cheDoPhatNgauNhien) {
             nutPhatNgauNhien.querySelector("i").style.color = "#49ADF4"; // Màu xanh khi bật phát ngẫu nhiên
             baiDaPhat = []; // Đặt lại danh sách đã phát khi bật chế độ phát ngẫu nhiên
@@ -252,6 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
             phatBaiHatTiepTheo();
         }
     });
+
     document.querySelector('.fa-rotate-right').closest("button").addEventListener("click", toggleCheDoLap);
 
     function capNhatTrangThaiDieuKhien(hoatDong) {
@@ -259,4 +279,3 @@ document.addEventListener('DOMContentLoaded', function () {
         dieuKhienElements.forEach(el => el.classList.toggle('disabled', !hoatDong));
     }
 });
-
