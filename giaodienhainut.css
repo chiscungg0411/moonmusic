@@ -146,6 +146,7 @@ body {
   border: 2px solid #ffffff00;
   outline: none;
   width: 300px;
+  transition: border 0.3s;
 }
 
 .container input:hover {
@@ -168,10 +169,14 @@ body {
   background-color: #fff;
   border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
 }
 
 .container button:hover {
-  background-color: #cecece;
+  background-color: #2626265f;
+  color:#fff;
+  border: none;
 }
 
 .container p {
