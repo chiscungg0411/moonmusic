@@ -226,10 +226,14 @@ body, .no-select {
         white-space: nowrap;
     }
 
-    .taikhoan i, .taikhoan:hover i {
-        opacity: none;
+    .taikhoan .nutdangky i .taikhoan .nutdangnhap i {
+        opacity: 0;
     }
 
+    .taikhoan .nutdangky:hover i, .taikhoan .nutdangnhap:hover i{
+        opacity: 0;
+    }
+   
     .nghe-si-header {
         padding: 20px 10px;
     }
