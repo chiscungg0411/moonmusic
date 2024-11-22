@@ -226,7 +226,7 @@ body, .no-select {
         white-space: nowrap;
     }
 
-    .taikhoan i {
+    .taikhoan i, .taikhoan:hover i {
         opacity: none;
     }
 
