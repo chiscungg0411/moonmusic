@@ -226,6 +226,10 @@ body, .no-select {
         white-space: nowrap;
     }
 
+    .taikhoan i {
+        opacity: none;
+    }
+
     .nghe-si-header {
         padding: 20px 10px;
     }
