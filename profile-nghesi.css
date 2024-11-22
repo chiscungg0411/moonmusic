@@ -83,31 +83,75 @@ body, .no-select {
     gap: 10px;
 }
 
-.taikhoan .nutdangky, .taikhoan .nutdangnhap {
+.taikhoan .nutdangky,
+.taikhoan .nutdangnhap {
     padding: 8px 20px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s ease-out, color 0.3s ease-out;
+    line-height: 1.5;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .taikhoan .nutdangky {
-    background-color: #181818;
+    background-color: #181818af;
     color: #fff;
-    border-color: #fff;
+    margin-right: 5px;
+    padding-right: 40px;
+}
+
+.taikhoan .nutdangky:hover {
+    transform: scale(1.05);
+    background-color: #444;
+    
+}
+
+.taikhoan .nutdangky i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%) scale(0); /* Trạng thái ban đầu thu nhỏ */
+    opacity: 0; /* Ẩn ban đầu */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Hiệu ứng chuyển động mượt */
+}
+
+.taikhoan .nutdangky:hover i {
+    transform: translateY(-50%) scale(1); /* Phóng to khi hover */
+    opacity: 1; /* Hiển thị biểu tượng */
+    font-size: 13px;
 }
 
 .taikhoan .nutdangnhap {
     background-color: #fff;
-    color: #000;
-}
-
-.taikhoan .nutdangky:hover {
-    background-color: #4b4b4b;
+    color: #181818;
+    padding-right: 28px;
 }
 
 .taikhoan .nutdangnhap:hover {
-    background-color: #cbcbcb;
+    background-color: #414141;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.taikhoan .nutdangnhap i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) scale(0); /* Trạng thái ban đầu thu nhỏ */
+    opacity: 0; /* Ẩn ban đầu */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Hiệu ứng chuyển động mượt */
+}
+
+.taikhoan .nutdangnhap:hover i {
+    transform: translateY(-50%) scale(1); /* Phóng to khi hover */
+    opacity: 1; /* Hiển thị biểu tượng */
+    font-size: 13px;
 }
 
 @media (max-width: 768px) {
