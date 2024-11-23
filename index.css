@@ -561,6 +561,10 @@ body, .no-select {
 .thanh-nhac{
     margin-left:-195px;
 }
+#thanh-thoi-gian:disabled {
+    cursor:auto;
+    color:#121212;
+}
 
 #thanh-nhac {
     display: none; /* Ẩn thanh nhạc mặc định */
@@ -654,6 +658,22 @@ body, .no-select {
 }
 
 /* Điều khiển */
+
+input:disabled {
+    background-color: #e0e0e0; /* Màu nền xám */
+    cursor: not-allowed; /* Con trỏ chuột hiển thị trạng thái không cho phép */
+    opacity: 0.6; /* Giảm độ trong suốt */
+}
+
+button:disabled {
+    background-color: none; /* Màu nền xám */
+    cursor: not-allowed; /* Con trỏ chuột hiển thị trạng thái không cho phép */
+    opacity: 0.6; /* Giảm độ trong suốt */
+
+}
+
+
+
 .dieu-khien {
     display: flex;
     align-items: center;
