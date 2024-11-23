@@ -25,7 +25,7 @@ body, .no-select {
     z-index: 1000;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #1818189c;
+    background-color: #0b0b0b;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     height: 60px;
 }
@@ -611,7 +611,7 @@ body, .no-select {
 .trinh-phat {
     display: flex;
     align-items: center;
-    background-color: #181818;
+    background-color: #070707;
     color: white;
     padding: 5px;
     position: fixed;
