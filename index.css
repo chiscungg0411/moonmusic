@@ -29,6 +29,14 @@ body, .no-select {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.thanhdieuhuong .logo {
+    transition: transform 1.05s;
+}
+
+.thanhdieuhuong .logo:hover {
+    transform: scale(1.2);
+}
+
 .logo img {
     vertical-align: middle;
 }
