@@ -178,6 +178,7 @@ body, .no-select {
         padding: 10px;
         flex-direction: row; /* Đặt tất cả phần tử trên cùng một hàng ngang */
         gap: 7px; /* Thêm khoảng cách giữa các phần tử */
+        height: 45px;
     }
 
     .logo, .timkiem, .taikhoan {
@@ -231,6 +232,15 @@ body, .no-select {
         padding: 5px 10px;
         font-size: 13px; /* Giảm kích thước font chữ trên mobile */
         white-space: nowrap;
+        height: 30px;
+    }
+
+    .taikhoan .nutdangky i .taikhoan .nutdangnhap i {
+        opacity: 0;
+    }
+
+    .taikhoan .nutdangky:hover i, .taikhoan .nutdangnhap:hover i{
+        opacity: 0;
     }
 
     .nghe-si-header {
