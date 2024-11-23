@@ -244,11 +244,11 @@ body, .no-select {
     }
 
     .nghe-si-header {
-        top: -60px;
+        top: -50px;
         padding: 20px 10px;
     }
     .artist-info {
-        display: flex;
+        display: flex; 
         flex-direction: row;
         gap: 10px;
         justify-content: center;
