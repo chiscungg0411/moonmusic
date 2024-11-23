@@ -244,6 +244,7 @@ body, .no-select {
     }
 
     .nghe-si-header {
+        top: -60px;
         padding: 20px 10px;
     }
     .artist-info {
@@ -267,6 +268,7 @@ body, .no-select {
     }
 
     .popular-songs {
+        margin-top: -60px;
         padding: 20px;
         color: white;
         background-color: #121212;
