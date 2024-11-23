@@ -22,7 +22,7 @@ body, .no-select {
     z-index: 1000;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #181818;
+    background-color: #1818189c;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     height: 60px;
 }
@@ -113,7 +113,7 @@ body, .no-select {
 }
 
 .taikhoan .nutdangky {
-    background-color: #181818af;
+    background-color: #18181800;
     color: #fff;
     margin-right: 5px;
     padding-right: 40px;
