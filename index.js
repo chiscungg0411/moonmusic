@@ -19,15 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let baiDaPhat = []; // Mảng lưu trữ các chỉ số bài hát đã phát
 
     // Khôi phục trạng thái từ sessionStorage
-    if (sessionStorage.getItem('currentSong')) {
-        const currentSong = JSON.parse(sessionStorage.getItem('currentSong'));
-        audioPlayer.src = currentSong.url;
-        chiSoBaiHatHienTai = currentSong.index;
-        if (currentSong.isPlaying) {
-            audioPlayer.play();
-            dangPhat = true;
-        }
-    }
+    
 
     resetTrackInfo();
     capNhatTrangThaiDieuKhien(false); // Vô hiệu hóa các điều khiển khi tải trang

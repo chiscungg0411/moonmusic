@@ -103,6 +103,7 @@ body, .no-select {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: -10px;
 }
 
 .taikhoan .nutdangky {
