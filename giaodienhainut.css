@@ -190,11 +190,14 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 14px;
+  
 }
 
 .container p a:hover {
   text-decoration: underline;
 }
+
+/*----------------------------FOOTER--------------------------- */
 
 footer {
   width: 100%;
