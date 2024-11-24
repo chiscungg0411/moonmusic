@@ -22,17 +22,22 @@ body, .no-select {
     z-index: 1000;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #0b0b0b;
+    background-color: #000000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     height: 60px;
+    transition: background-color 0.3s;
+}
+
+.thanhdieuhuong:hover {
+    background-color: #0e0e0e;
 }
 
 .thanhdieuhuong .logo {
-    transition: transform 1.05s;
+    transition: transform 0.5s;
 }
 
 .thanhdieuhuong .logo:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
 }
 
 .logo img {
@@ -79,6 +84,11 @@ body, .no-select {
     display: flex;
     align-items: center;
     padding: 5px;
+    transition: transform 0.3s;
+}
+
+.timkiem button:hover {
+    transform: scale(1.2);
 }
 
 .timkiem button i {
@@ -271,7 +281,7 @@ body, .no-select {
         margin-top: -60px;
         padding: 20px;
         color: white;
-        background-color: #121212;
+        background-color: #0c0c0c;
     }
 
     .noi-dung-chinh p {
@@ -559,7 +569,7 @@ body, .no-select {
 .popular-songs {
     padding: 20px;
     color: white;
-    background-color: #121212;
+    background-color: #0c0c0c;
     padding-bottom: 20px;
 }
 
@@ -586,7 +596,7 @@ body, .no-select {
 }
 
 .song:hover {
-    background-color: #282828;
+    background-color: #1d1d1d;
 }
 
 .song p {
