@@ -248,7 +248,7 @@ body, .no-select {
         padding: 20px 10px;
     }
     .artist-info {
-        display: flex; 
+        display: flex;
         flex-direction: row;
         gap: 10px;
         justify-content: center;
